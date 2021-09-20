@@ -62,9 +62,11 @@ body {
     background: var(--clr-grey-10);
     color: var(--clr-grey-1);
     line-height: 1.5;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .container {
@@ -72,7 +74,8 @@ body {
     border-radius: var(--radius);
     box-shadow: var(--light-shadow);
     transition: var(--transition);
-    padding: 2rem;
+    padding: 1rem;
+    margin-top: .6rem;
 }
 
 fieldset {
@@ -83,7 +86,7 @@ fieldset {
 
 legend {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -95,9 +98,10 @@ legend {
 
 .form-control label {
     font-family: inherit;
+    text-transform: capitalize;
     padding-bottom: 5px;
     font-weight: normal;
-    font-size: .9rem;
+    font-size: .8rem;
     color: var(--clr-grey-1);
     margin-right: 10px;
 }
@@ -107,7 +111,7 @@ input {
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: var(--clr-primary-1);
-    font-size: 1rem;
+    font-size: .85rem;
     flex: 1 0 auto;
     color: var(--clr-grey-5);
     margin-bottom: 1rem;
@@ -122,14 +126,175 @@ input {
 }
 
 .gender-row h3 {
-    margin-right: 1rem;
+    margin-right: .85rem;
+    font-size: .8rem;
 }
 
 .gender-row label {
-    margin-top: 8px;
+    margin-top: 5px;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-    margin: 5px 3px;
+    margin: 5px 3px 0px 3px;
+}
+
+.checkbox-container {
+    margin: .48rem 0;
+}
+
+.btn {
+    background-color: var(--clr-primary-5);
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: var(--dark-shadow);
+    padding: .45rem;
+    color: var(--clr-white);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+/* Zebra striping */
+
+tr:nth-of-type(odd) {
+    background: #eee;
+}
+
+th {
+    background: #333;
+    color: white;
+    font-weight: bold;
+}
+
+td,
+th {
+    padding: 6px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 960px) {
+    /* Force table to not be like tables anymore */
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 1px solid #ccc;
+    }
+    td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+    /*
+	Label the data
+	*/
+    td:nth-of-type(1):before {
+        content: "FirstName";
+    }
+    td:nth-of-type(2):before {
+        content: "LastName";
+    }
+    td:nth-of-type(3):before {
+        content: "Address";
+    }
+    td:nth-of-type(4):before {
+        content: "Pincode";
+    }
+    td:nth-of-type(5):before {
+        content: "Gender";
+    }
+    td:nth-of-type(6):before {
+        content: "Food";
+    }
+    td:nth-of-type(7):before {
+        content: "State";
+    }
+    td:nth-of-type(8):before {
+        content: "Country";
+    }
+}
+
+
+/* Media queries for bigger screen */
+
+@media (min-width: 960px) {
+    body {
+        padding: 1rem;
+    }
+    .container {
+        margin-top: .6rem;
+    }
+    .name-row,
+    .place-row {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    #pincode {
+        width: 130px;
+    }
+    .name-row {
+        width: 400px;
+    }
+    .place-row {
+        width: 460px;
+    }
+    #state,
+    #country {
+        max-width: 150px;
+    }
+    #address {
+        width: 500px;
+    }
+    .btn {
+        width: 200px;
+    }
+    .form-control label {
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    .food-row {
+        margin-bottom: 1rem;
+    }
+    .gender-row h3,
+    .food-row h3 {
+        font-size: 1rem;
+    }
+    .gender-row label,
+    .food-row label {
+        font-weight: normal;
+    }
 }
