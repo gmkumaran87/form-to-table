@@ -37,16 +37,12 @@ Variables
     --clr-red-light: hsl(360, 71%, 66%);
     --clr-green-dark: hsl(125, 67%, 44%);
     --clr-green-light: hsl(125, 71%, 66%);
-    --clr-black: #222;
     --ff-primary: "Roboto", sans-serif;
     --ff-secondary: "Open Sans", sans-serif;
     --transition: all 0.3s linear;
     --spacing: 0.25rem;
-    --radius: 0.5rem;
     --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    --max-width: 1170px;
-    --fixed-width: 620px;
 }
 
 *,
@@ -67,6 +63,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    letter-spacing: 3px;
 }
 
 .container {
@@ -75,7 +72,7 @@ body {
     box-shadow: var(--light-shadow);
     transition: var(--transition);
     padding: 1rem;
-    margin-top: .6rem;
+    margin-top: 1.6rem;
 }
 
 fieldset {
@@ -144,15 +141,37 @@ input[type="checkbox"] {
 }
 
 .btn {
-    background-color: var(--clr-primary-5);
+    background-color: var(--clr-primary-8);
     border: none;
     cursor: pointer;
     border-radius: 5px;
     box-shadow: var(--dark-shadow);
     padding: .45rem;
-    color: var(--clr-white);
+    color: #000;
+    font-weight: 400;
+    letter-spacing: 2px;
     font-family: inherit;
     font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+.alert {
+    font-family: inherit;
+    font-size: .8rem;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+}
+
+.failure {
+    color: #721c24;
+    background: #f8d7da;
+}
+
+.success {
+    color: #155724;
+    background: #d4edda;
 }
 
 table {
@@ -252,10 +271,16 @@ th {
 
 @media (min-width: 960px) {
     body {
+        letter-spacing: 3px;
         padding: 1rem;
     }
     .container {
-        margin-top: .6rem;
+        margin-top: 1.6rem;
+    }
+    legend {
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
     }
     .name-row,
     .place-row {
